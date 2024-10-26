@@ -103,9 +103,9 @@ public class Main extends ApplicationAdapter {
 
     public @NotNull Neat createNeat() {
         // Change this to true/false as needed, if you want to load from file
-        if (false) {
-            // TODO: Change this to the exact file you want to load
-            File exactFile = new File("saves" + File.separator + "oct26-4" + File.separator + "generation-51.json");
+        if (true) {
+            // TODO: Change this to the exact file you wan q t to load
+            File exactFile = new File("saves" + File.separator + "oct26-24" + File.separator + "generation-91.json");
             // load exactFile contents to string
             String json;
             try {
@@ -115,7 +115,7 @@ public class Main extends ApplicationAdapter {
             }
             NeatImpl impl = NeatImpl.fromJson(json);
             // modify this as needed
-            //impl.updateNodeCounts(8, 4);  // Add 4 new inputs
+            impl.updateNodeCounts(12, 4);  // Add 4 new inputs
             //impl.updateClients(200);  // have 200 pacman games at once
             return impl;
         } else {
@@ -125,7 +125,8 @@ public class Main extends ApplicationAdapter {
             neatParameters.setTargetClientsPerSpecies(12);  // targeting ~12 clients per species
             neatParameters.setStagnationLimit(10);  // lower stagnation limit
             neatParameters.setUseBiasNode(true);  // use bias node
-            return new NeatImpl(4, 4, totalGames, neatParameters);
+            // CHANGE THE PARAMETER TO # OF INPUTS
+            return new NeatImpl(12,4, totalGames, neatParameters);
         }
     }
 
